@@ -20,13 +20,13 @@ X_val = X[~mask]
 Y_val = y[~mask]
 
 t1 = time.time()
-model = XGBClassifier(n_estimators=200, booster='gbtree')
+model = XGBClassifier(n_estimators=100, booster='gbtree')
 print(model)
 model.fit(X_train, Y_train)
 result = model.predict(X_val)
-print('training acc :{}\t runtime : {:.3f}'.format(sum(Y_val == result) / len(Y_val), time.time()-t1))
+print('validation acc :{}\t runtime : {:.3f}'.format(sum(Y_val == result) / len(Y_val), time.time()-t1))
 print('pridiction : {}'.format(result[:10]))
 print('pridiction : {}'.format(Y_val[:10]))
-print(result.shape)
+#print(result.shape)
 ##plot_importance(model)
 #pyplot.show()
